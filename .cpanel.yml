@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home12/technozc/public_html/biz.technoz.com
+    - /bin/cp hello.txt $DEPLOYPATH
