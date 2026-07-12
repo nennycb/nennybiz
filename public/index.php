@@ -1,10 +1,7 @@
 <?php
 
-require '../app/Core/Env.php';
-require '../app/Core/Database.php';
+require '../app/Core/Application.php';
 
-Env::load('../.env');
+$app = new Application();
 
-$db = new Database();
-
-echo "Database Connected!";
+$app->run();
