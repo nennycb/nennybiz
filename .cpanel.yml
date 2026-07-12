@@ -4,14 +4,11 @@ deployment:
     - export DEPLOYPATH=/home12/technozc/public_html/biz.technoz.com
 
     - /bin/cp -R app $DEPLOYPATH
-    - /bin/cp -R assets $DEPLOYPATH
     - /bin/cp -R config $DEPLOYPATH
-    - /bin/cp -R core $DEPLOYPATH
-    - /bin/cp -R database $DEPLOYPATH
-    - /bin/cp -R docs $DEPLOYPATH
-    - /bin/cp -R resources $DEPLOYPATH
+    - /bin/cp -R public $DEPLOYPATH
     - /bin/cp -R routes $DEPLOYPATH
     - /bin/cp -R storage $DEPLOYPATH
+    - /bin/cp -R vendor $DEPLOYPATH
 
     - /bin/cp index.php $DEPLOYPATH
-    - /bin/cp .htaccess $DEPLOYPATH
+  

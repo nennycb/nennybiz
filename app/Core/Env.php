@@ -1,0 +1,37 @@
+<?php
+
+class Env
+{
+    public static function load($path)
+    {
+        if (!file_exists($path)) {
+            die(".env file not found.");
+        }
+
+        $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+        foreach ($lines as $line) {
+
+            // Skip comment
+            if (str_starts_with(trim($line), '#')) {
+                continue;
+            }
+
+            if (!str_contains($line, '=')) {
+                continue;
+            }
+
+            list($key, $value) = explode('=', $line, 2);
+
+            $key   = trim($key);
+            $value = trim($value);
+
+            $_ENV[$key] = $value;
+        }
+    }
+
+    public static function get($key, $default = null)
+    {
+        return $_ENV[$key] ?? $default;
+    }
+}

@@ -1,7 +1,5 @@
-<?php
+require '/app/Core/Database.php';
 
-require_once __DIR__ . '/core/Application.php';
+$db = new Database();
 
-$app = new Application();
-
-$app->run();
+echo "Database Connected!";
