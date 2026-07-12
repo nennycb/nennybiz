@@ -1,3 +1,5 @@
+<?php
+
 class Application
 {
     private $db;
