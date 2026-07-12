@@ -1,10 +1,12 @@
-<?php
-
 class Application
 {
+    private $db;
+
     public function __construct()
     {
-        // Bootstrap application
+        Env::load('../.env');
+
+        $this->db = new Database();
     }
 
     public function run()

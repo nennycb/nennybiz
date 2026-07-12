@@ -1,6 +1,6 @@
 <?php
 
-require '../app/Core/Application.php';
+require '../bootstrap.php';
 
 $app = new Application();
 
