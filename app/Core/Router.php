@@ -20,11 +20,15 @@ class Router
 
     $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
+    $route = $this->routes[$method][$uri] ?? null;
+
     echo "Method : " . $method . "<br>";
     echo "URI : " . $uri . "<br><br>";
 
-    echo "<pre>";
-    print_r($this->routes);
-    echo "</pre>";
+    if ($route) {
+        echo "Route Found : " . $route;
+    } else {
+        echo "404 Not Found";
+    }
 }
 }
