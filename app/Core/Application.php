@@ -11,9 +11,9 @@ class Application
 
         $this->db = new Database();
 
-        $this->router = new Router();
+        $router = $this->router;
 
-        require '../routes/web.php';
+        require __DIR__ . '/../../routes/web.php';
     }
 
     public function run()
