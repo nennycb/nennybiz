@@ -15,9 +15,16 @@ class Router
     }
 
     public function dispatch()
-    {
-        echo "<pre>";
-        print_r($this->routes);
-        echo "</pre>";
-    }
+{
+    $method = $_SERVER['REQUEST_METHOD'];
+
+    $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+    echo "Method : " . $method . "<br>";
+    echo "URI : " . $uri . "<br><br>";
+
+    echo "<pre>";
+    print_r($this->routes);
+    echo "</pre>";
+}
 }
