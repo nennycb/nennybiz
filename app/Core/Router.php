@@ -16,19 +16,19 @@ class Router
 
     public function dispatch()
 {
-    $method = $_SERVER['REQUEST_METHOD'];
+    $requestMethod = $_SERVER['REQUEST_METHOD'];
+    $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-    $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    $route = $this->routes[$requestMethod][$requestUri] ?? null;
 
-    $route = $this->routes[$method][$uri] ?? null;
-
-    echo "Method : " . $method . "<br>";
-    echo "URI : " . $uri . "<br><br>";
-
-    if ($route) {
-        echo "Route Found : " . $route;
-    } else {
-        echo "404 Not Found";
+    if (!$route) {
+        http_response_code(404);
+        die("404 Not Found");
     }
+
+    list($controller, $method) = explode('@', $route);
+
+    echo "Controller : " . $controller . "<br>";
+    echo "Method : " . $method;
 }
 }
