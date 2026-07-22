@@ -1,23 +1,12 @@
-<?php
-
-class Application
+public function __construct()
 {
-    private $db;
-    private $router;
+    Env::load('../.env');
 
-    public function __construct()
-    {
-        Env::load('../.env');
+    $this->db = new Database();
 
-        $this->db = new Database();
+    $this->router = new Router();
 
-        $router = $this->router;
+    $router = $this->router;
 
-        require __DIR__ . '/../../routes/web.php';
-    }
-
-    public function run()
-    {
-        $this->router->dispatch();
-    }
+    require __DIR__ . '/../../routes/web.php';
 }
