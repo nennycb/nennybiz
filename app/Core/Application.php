@@ -1,12 +1,30 @@
-public function __construct()
+<?php
+
+class Application
 {
-    Env::load('../.env');
+    private $db;
+    private $router;
 
-    $this->db = new Database();
+    public function __construct()
+    {
+        // Load environment variables
+        Env::load(__DIR__ . '/../../.env');
 
-    $this->router = new Router();
+        // Connect database
+        $this->db = new Database();
 
-    $router = $this->router;
+        // Create router
+        $this->router = new Router();
 
-    require __DIR__ . '/../../routes/web.php';
+        // Make router available to routes/web.php
+        $router = $this->router;
+
+        // Register routes
+        require __DIR__ . '/../../routes/web.php';
+    }
+
+    public function run()
+    {
+        $this->router->dispatch();
+    }
 }
