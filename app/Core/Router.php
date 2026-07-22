@@ -15,7 +15,7 @@ class Router
     }
 
     public function dispatch()
-{
+    {
     $requestMethod = $_SERVER['REQUEST_METHOD'];
     $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -30,5 +30,5 @@ class Router
 
     echo "Controller : " . $controller . "<br>";
     echo "Method : " . $method;
-}
+    }
 }
