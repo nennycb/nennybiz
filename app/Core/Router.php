@@ -25,10 +25,15 @@ class Router
         http_response_code(404);
         die("404 Not Found");
     }
-
     list($controller, $method) = explode('@', $route);
 
-    echo "Controller : " . $controller . "<br>";
-    echo "Method : " . $method;
+    require __DIR__ . '/../Controllers/' . $controller . '.php';
+
+    $controller = new $controller();
+
+    $controller->$method();
+    
     }
+
+    
 }
