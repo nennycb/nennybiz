@@ -4,6 +4,6 @@ class HomeController
 {
     public function index()
     {
-        View::render('home');
+        view('home');
     }
 }
