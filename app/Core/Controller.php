@@ -2,5 +2,5 @@
 
 class Controller
 {
-    // fungsi asas controller akan duduk sini
+     // fungsi asas controller akan duduk sini
 }
